@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .center {
+            height: 200px;
+            position: relative;
+            border: 3px solid green;
+        }
+
+        .center p {
+            margin: 0;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+        }
+    </style>
+</head>
+<body>
+
+<h1>居中</h1>
+
+<p>在此例中，我们使用 position 和 transform 属性将 div 元素垂直和水平居中：</p>
+
+<div class="center">
+    <p>我是垂直和水平居中。</p>
+</div>
+</body>
+</html>
