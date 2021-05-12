@@ -1,33 +1,134 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
     <style>
-        .center {
+        /* 方法一： 正常流，不修改元素本身的特性属性 */
+        .img1 {
+            width: 200px;
             height: 200px;
-            position: relative;
-            border: 3px solid green;
+            border: 1px dashed red;
+            margin: 0 auto;
+            object-fit: contain;
         }
 
-        .center p {
-            margin: 0;
+
+        /* 方法二：inline-block，父元素固定定宽高，子元素图片尺寸大于父元素宽高，那么给子元素固定宽高。 */
+        .img2 {
+            width: 300px;
+            height: 300px;
+            line-height: 300px;
+            text-align: center;
+            border: 1px solid red;
+            margin: 0 auto;
+        }
+
+        .img2 img {
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        .img21 {
+            width: 150px;
+            /* 父元素宽度的一半 */
+            height: 100%;
+            margin-top: -4px;
+            /* 图片顶部出现空隙，添加负值 */
+        }
+
+        /* 方法三：背景图，就是把图片改为背景图设置 */
+        .background1,
+        .background2,
+        .background3 {
+            width: 200px;
+            height: 200px;
+            margin: 0 auto;
+            border: 1px dotted #7a0b62;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
+        .background1 {
+            background-image: url("./images/风景图标2.png");
+        }
+
+        .background2 {
+            background-image: url("./images/风景1.jpg");
+        }
+
+        .background3 {
+            background-image: url("./images/风景2.jpg");
+            background-size: contain;
+        }
+
+        /* 方法四： 定位(相对 + 绝对) */
+
+        .img3 {
+            width: 200px;
+            height: 200px;
+            position: relative;
+            border: 2px solid;
+            margin: 0 auto;
+        }
+
+        .img3 .img31,
+        .img32,
+        .img33 {
+            max-width: 100%;
+            max-height: 100%;
             position: absolute;
-            top: 50%;
-            left: 50%;
-            -ms-transform: translate(-50%, -50%);
-            transform: translate(-50%, -50%);
+            left: 0;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            margin: auto;
         }
     </style>
 </head>
+
 <body>
 
-<h1>居中</h1>
+<div>
+    <img src="./images/风景图标2.png" alt="scenery1" class="img1">
+    <img src="./images/风景1.jpg" alt="scenery2" class="img1">
+</div>
+<div>
+    <img src="./images/风景2.jpg" alt="scenery3" class="img1">
+</div>
 
-<p>在此例中，我们使用 position 和 transform 属性将 div 元素垂直和水平居中：</p>
+<hr>
+<div class="img2">
+    <img src="./images/风景图标2.png" alt="scenery1">
+</div>
+<hr>
+<div class="img2">
+    <img src="./images/风景1.jpg" alt="scenery2">
+</div>
 
-<div class="center">
-    <p>我是垂直和水平居中。</p>
+<hr>
+<div class="img2">
+    <img src="./images/风景2.jpg" alt="scenery3" class="img21">
+</div>
+
+<hr>
+<div class="background1"></div>
+<div class="background2"></div>
+<div class="background3"></div>
+
+<hr>
+<div class="img3">
+    <img src="./images/风景图标2.png" alt="scenery1" class="img31" />
+</div>
+<div class="img3">
+    <img src="./images/风景1.jpg" alt="scenery2" class="img32" />
+</div>
+<div class="img3">
+    <img src="./images/风景2.jpg" alt="scenery3" class="img33" />
 </div>
 </body>
+
 </html>
