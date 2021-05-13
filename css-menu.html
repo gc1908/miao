@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+        .menu > li{
+            float: left;
+            text-align: center;
+            width: 100px;
+            height: 20px;
+        }
+        .menu>li ul{
+            display: none;
+        }
+        .menu>li>ul>li>ul{
+            margin-left: 100px;
+        }
+        li:hover>ul{
+            background-color: red;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+<ul class="menu">
+    <li>文件
+        <ul>
+            <li>1
+                <ul>
+                    <li>q</li>
+                    <li>w</li>
+                    <li>e</li>
+                </ul>
+            </li>
+            <li>2
+                <ul>
+                    <li>r</li>
+                    <li>t</li>
+                    <li>y</li>
+                </ul>
+            </li>
+            <li>3
+                <ul>
+                    <li>u</li>
+                    <li>i</li>
+                    <li>o</li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+    <li>编辑
+        <ul>
+            <li>aaa</li>
+            <li>aaa</li>
+            <li>aaa</li>
+        </ul>
+    </li>
+    <li>视图
+        <ul>
+            <li>aaa</li>
+            <li>aaa</li>
+            <li>aaa</li>
+        </ul>
+    </li>
+</ul>
+</body>
+</html>

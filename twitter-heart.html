@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    .content{
+      box-sizing: content-box;
+      border: 3px solid red;
+      width: 100px;
+      height: 100px;
+      background-position:0 0;
+      background-image: url("web_heart_animation.png");
+      background-repeat: no-repeat;
+    }
+    .content:hover{
+      background-position:-2800px 0;
+      transition: background-position 2s steps(28);
+    }
+  </style>
+</head>
+<body>
+<div class="content">
+
+</div>
+</body>
+</html>
