@@ -1,27 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <meta charset="UTF-8" />
+    <title>buttom</title>
     <style>
-        .content{
-            box-sizing: content-box;
-            border: 3px solid red;
-            width: 100px;
-            height: 100px;
-            background-position:0 0;
-            background-image: url("web_heart_animation.png");
-            background-repeat: no-repeat;
+        * {
+            box-sizing: border-box;
         }
-        .content:hover{
-            background-position:-2800px 0;
-            transition: background-position 2s steps(28);
+        .change-width{
+            position: relative;
+            width: 500px;
+            height: 500px;
+            background-color: red;
         }
+      .bottom {
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          width: 100px;
+          height: 100px;
+          background-color: #34f451;
+          margin: auto;
+      }
     </style>
 </head>
 <body>
-<div class="content">
+<main class="change-width">
+    <label class="bottom" ></label>
 
-</div>
+</main>
 </body>
 </html>
