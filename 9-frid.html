@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <style>
+    *{
+      padding: 0;
+      margin: 0;
+    }
+    /*表格法*/
+    table{
+      border-collapse: collapse;
+    }
+    td{
+      width: 50px;
+      height: 50px;
+      color: #008000;
+      background-color: #f0f0f0;
+      text-align: center;
+      line-height: 50px;
+    }
+    col{
+      width: 50px;
+      border: 5px solid #0000f0;
+    }
+    tr{
+      height: 50px;
+      border: 5px solid #0000f0;
+      cursor: pointer;
+    }
+    td:hover{
+      border:5px solid #f00000;
+    }
+    /*定位*/
+    .ulgrid{
+      position: relative;
+      width: 170px;
+      height: 170px;
+      background-color: #0000f0;
+    }
+    .ulgrid ul{
+      list-style: none;
+    }
+    .ulgrid ul li{
+      width: 50px;
+      height: 50px;
+      color: #008000;
+      background-color: #f0f0f0;
+      text-align: center;
+      line-height: 50px;
+      position: absolute;
+    }
+    .ulgrid ul li:nth-child(1),
+    .ulgrid li:nth-child(4),
+    .ulgrid li:nth-child(7){
+      position: absolute;
+      left: 5px;
+    }
+    .ulgrid ul li:nth-child(2),
+    .ulgrid li:nth-child(5),
+    .ulgrid li:nth-child(8){
+      position: absolute;
+      left: 60px;
+    }
+    .ulgrid ul li:nth-child(3),
+    .ulgrid li:nth-child(6),
+    .ulgrid li:nth-child(9){
+      position: absolute;
+      left: 115px;
+    }
+    .ulgrid ul li:nth-child(n+1)
+    {
+      position: absolute;
+      top: 5px;
+    }
+    .ulgrid ul li:nth-child(n+4)
+    {
+      position: absolute;
+      top: 60px;
+    }
+    .ulgrid ul li:nth-child(n+7)
+    {
+      position: absolute;
+      top: 115px;
+    }
+    .ulgrid ul li:hover{
+      margin: -5px -5px;
+      border:5px solid #f00000;
+    }
+
+
+    /*浮动法*/
+    .floatgrid{
+      float: left;
+      width: 170px;
+      height: 170px;
+      background-color: #0000f0;
+    }
+    .floatgrid ul{
+      list-style: none;
+    }
+    .floatgrid ul li{
+      width: 50px;
+      height: 50px;
+      color: #008000;
+      background-color: #f0f0f0;
+      text-align: center;
+      line-height: 50px;
+    }
+   /* ul:nth-child(2){
+      position: absolute;
+      top: 50px;
+    }
+    .floatgrid ul :nth-child(3){
+      position: absolute;
+      top: 100px;
+    }*/
+    .floatgrid ul li{
+      float: left;
+      margin-left: 5px;
+      margin-top: 5px;
+    }
+    .floatgrid ul li:hover{
+      margin: 0 -5px -5px 0;
+      border:5px solid #f00000;
+    }
+    /*.floatgrid ul li:nth-child(-n+6):nth-child(n+4){
+      float: left;
+    }
+    .floatgrid ul li:nth-child(-n+9):nth-child(n+6){
+      float: left;
+    }*/
+  </style>
+</head>
+<body>
+<main>
+  <table >
+    <colgroup>
+      <col />
+      <col />
+      <col />
+    </colgroup>
+    <tbody>
+    <tr>
+      <td>1</td>
+      <td>2</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>5</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>8</td>
+      <td>9</td>
+    </tr>
+    </tbody>
+  </table>
+
+<br />
+<div class="ulgrid">
+  <ul>
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    <li>5</li>
+    <li>6</li>
+    <li>7</li>
+    <li>8</li>
+    <li>9</li>
+  </ul>
+</div>
+  <br />
+
+  <div class="floatgrid">
+    <ul>
+      <li>1</li>
+      <li>2</li>
+      <li>3</li>
+      <li>4</li>
+      <li>5</li>
+      <li>6</li>
+      <li>7</li>
+      <li>8</li>
+      <li>9</li>
+    </ul>
+  </div>
+</main>
+</body>
+</html>
