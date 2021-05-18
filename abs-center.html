@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+    }
+    div{
+      border: 1px solid;
+    }
+    /*margin居中*/
+    .center1{
+      width: 200px;
+      height: 150px;
+      position: relative;
+    }
+    .center1 div{
+      margin: auto;
+      width: 50%;
+      height: 50px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      }
+    /*归零剧中*/
+    .center2{
+      width: 200px;
+      height: 150px;
+      position: relative;
+    }
+    .center2 div{
+    position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      width: 50%;
+      height: 50px;
+      margin: auto;
+    }
+    /*基线垂直居中*/
+    .center3{
+      width: 200px;
+      height: 150px;
+      line-height: 150px;
+      text-align: center;
+    }
+    .center3 div{
+     display: inline-block;
+      width: 50%;
+      height: 50px;
+      vertical-align: middle;
+    }
+    /*flex居中*/
+    .center4{
+      width: 200px;
+      height: 150px;
+      align-items: center;
+      justify-content: center;
+      display: flex;
+    }
+    .center4 div{
+      width: 50%;
+      height: 50px;
+    }
+  </style>
+</head>
+<body>
+<div class="center1">
+  <div></div>
+</div>
+<div class="center2">
+  <div></div>
+</div>
+<div class="center3">
+  <div></div>
+</div>
+<div class="center4">
+  <div></div>
+</div>
+</body>
+</html>
