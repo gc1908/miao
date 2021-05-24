@@ -18,8 +18,15 @@
         .menu>li ul{
             display: none;
         }
+        .menu ul ul li{
+            width: 100px;
+            height: 20px;
+        }
         .menu>li>ul>li>ul{
-            margin-left: 100px;
+            position: absolute;
+            left: 100px;
+            margin-top: -20.5px;
+            border: 1px solid red;
         }
         li:hover>ul{
             background-color: red;
@@ -31,25 +38,25 @@
 <ul class="menu">
     <li>文件
         <ul>
-            <li>1
+            <li>新建
                 <ul>
-                    <li>q</li>
-                    <li>w</li>
-                    <li>e</li>
+                    <li>文件</li>
+                    <li>草稿</li>
+                    <li>目录</li>
                 </ul>
             </li>
-            <li>2
+            <li>打开
                 <ul>
-                    <li>r</li>
-                    <li>t</li>
-                    <li>y</li>
+                    <li>文件</li>
+                    <li>草稿</li>
+                    <li>目录</li>
                 </ul>
             </li>
-            <li>3
+            <li>设置
                 <ul>
-                    <li>u</li>
-                    <li>i</li>
-                    <li>o</li>
+                    <li>外观</li>
+                    <li>插件</li>
+                    <li>工具</li>
                 </ul>
             </li>
         </ul>
