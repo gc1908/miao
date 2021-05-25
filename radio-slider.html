@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>轮播图</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        input{
+            position: relative;
+            z-index: 10;
+        }
+       img{
+           position: absolute;
+           left: 100%;
+           width: 100vw;
+           height: 30vh;
+           transition:left 1s ;
+       }
+        /*img:nth-child伪类选择的时当前父元素的第n个元素，同时还是img的元素，两者同时符合才能选中*/
+        input:checked:nth-child(1)~img:nth-child(4),
+        input:checked:nth-child(2)~img:nth-child(5),
+        input:checked:nth-child(3)~img:nth-child(6)
+        {
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+ <main>
+     <input type="radio" name="radio_button" checked>
+     <input type="radio" name="radio_button">
+     <input type="radio" name="radio_button">
+     <img src="VCG41182719058.webp" >
+     <img src="img.png">
+     <img src="VCG211258126145.jpg">
+ </main>
+</body>
+</html>
