@@ -1,0 +1,201 @@
+<!doctype html>
+<html >
+<head>
+    <meta charset="utf-8">
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+    a{
+        text-decoration: none;
+    }
+
+    .container{
+        width: 100%;
+        height: 50px;
+        background-color: #f8f8f8;
+        border-color: #e7e7e7;
+        margin-bottom: 20px;
+    }
+    .navbar-brand{
+        font-size: 18px;
+        vertical-align: text-top;
+        line-height: 16px;
+    }
+    .container ul{
+        width:1140px;
+        margin: 0 auto;
+    }
+    .container li{
+        float: left;
+        padding: 15px;
+        color: #5e5e5e;
+        font-size: 14px;
+    }
+    .container a{
+        text-decoration: none;
+        color: #5e5e5e;
+    }
+    .dropdown{
+        width: 170px;
+        position: relative;
+    }
+    .dropdown li>a{
+        padding: 3px 20px;
+        clear: both;
+        font-weight: 400;
+        line-height: 1.42857143;
+        color: #333;
+        word-break: keep-all;
+    }
+
+    ul li.dropdown::after{
+        content: "";
+        width: 0;
+        height: 0;
+        border: 5px solid #f8f8f8;
+        border-top: 5px solid #777;
+        position: absolute;
+        margin-top: 7px;
+        margin-left: 3px;
+    }
+    .active{
+        background-color: #e7e7e7;
+    }
+    .container li ul{
+        z-index: 999999;
+        position: absolute;
+        padding: 5px 0;
+        display: none;
+        width: 195px;
+        height: 183px;
+        box-sizing: border-box;
+        top: 50px;
+        border: 1px solid rgba(0,0,0,.15);
+        border-radius: 4px;
+        box-shadow: 0 6px 12px rgba(0,0,0,.175);
+        white-space: nowrap;
+        background-color: white;
+    }
+    .container li li a{
+        font-size: 14px;
+        padding: 3px 20px;
+    }
+    .container li li {
+        width: 193px;
+        height: 26px;
+        clear: both;
+        padding: 0;
+    }
+    .container li li:hover{
+        background-color: #e7e7e7;
+    }
+    ul li.dropdown-header:hover{
+        background-color:white;
+    }
+    ul li.divider{
+        width: 100%;
+        height: 1px;
+        background-color: #e5e5e5;
+    }
+    ul li.dropdown-header{
+        width: 193px;
+        height: 26px;
+        padding: 3px 20px;
+        color: #777;
+    }
+    .container li:hover>a{
+        color: black;
+    }
+   body .container li:hover>ul{
+        display: block;
+        z-index:999999;
+    }
+    .navbar{
+        margin-bottom: 20px;
+    }
+    .page-header {
+        padding-bottom: 9px;
+        margin: 40px 0 20px;
+        border-bottom: 1px solid #eee;
+    }
+    .page{
+        width:1140px;
+        margin: 40px auto 20px;
+        z-index: 1;
+    }
+    .page-header {
+        padding-bottom: 9px;
+        border-bottom: 1px solid #eee;
+    }
+    .footer{
+        position: absolute;
+         width: 100%;
+         height: 50px;
+         background-color: #f8f8f8;
+         border-color: #e7e7e7;
+        line-height: 50px;
+        top: calc(100% - 50px);
+     }
+    .footer_content{
+        width:1140px;
+        margin: 0 auto;
+    }
+    .text-muted{
+        font-size: 14px;
+        color: #777;
+    }
+    code{
+        color: #c7254e;
+    }
+    @media screen and (max-width: 960px) {
+        .footer{
+            position: relative;
+        }
+    }
+</style>
+<body>
+
+<!-- Fixed navbar -->
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+            <ul class="nav navbar-nav">
+                <li><a class="navbar-brand" href="#">Project name</a></li>
+                <li class="active"><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+                <li class="dropdown">
+                    <a href="#" >Dropdown</input></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Action</a></li>
+                        <li><a href="#">Another action</a></li>
+                        <li><a href="#">Something else here</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li class="dropdown-header">Nav header</li>
+                        <li><a href="#">Separated link</a></li>
+                        <li><a href="#">One more separated link</a></li>
+                    </ul>
+                </li>
+            </ul>
+    </div>
+</nav>
+
+<!-- Begin page content -->
+<div class="page">
+    <div class="page-header">
+        <h1>Sticky footer with fixed navbar</h1>
+    </div>
+    <p class="lead">Pin a fixed-height footer to the bottom of the viewport in desktop browsers with this custom HTML and CSS. A fixed navbar has been added with <code>padding-top: 60px;</code> on the <code>body &gt; .container</code>.</p>
+    <p>Back to <a href="../sticky-footer/">the default sticky footer</a> minus the navbar.</p>
+</div>
+
+<footer class="footer">
+    <div class="footer_content">
+        <p class="text-muted">Place sticky footer content here.</p>
+    </div>
+</footer>
+</body>
+</html>
