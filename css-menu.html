@@ -9,11 +9,14 @@
             padding: 0;
             margin: 0;
         }
+
         .menu > li{
             float: left;
             text-align: center;
             width: 100px;
             height: 20px;
+            background-color: #5e5e5e;
+            border-bottom: 1px solid;
         }
         .menu>li ul{
             display: none;
@@ -22,14 +25,31 @@
             width: 100px;
             height: 20px;
         }
+        .menu ul ul ul li{
+            width: 100px;
+            height: 20px;
+        }
+        .menu ul ul ul{
+            position: absolute;
+            left: 100px;
+            margin-top: -22px;
+            border: 1px solid transparent;
+        }
         .menu>li>ul>li>ul{
             position: absolute;
             left: 100px;
             margin-top: -20.5px;
-            border: 1px solid red;
+            border: 1px solid transparent;
+        }
+        .menu ul ul::before{
+            content: '>';
+            position: absolute;
+            font-size: 16px;
+            left: -1.5em;
         }
         li:hover>ul{
-            background-color: red;
+            background-color: lightblue;
+            color: white;
             display: block;
         }
     </style>
@@ -40,7 +60,12 @@
         <ul>
             <li>新建
                 <ul>
-                    <li>文件</li>
+                    <li>文件
+                        <ul>
+                            <li>文件1</li>
+                            <li>文件2</li>
+                            <li>文件3</li>
+                        </ul></li>
                     <li>草稿</li>
                     <li>目录</li>
                 </ul>
