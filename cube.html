@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <style>
+    section{
+      width: 500px;
+      height: 500px;
+      margin:auto;
+        position: relative;
+        transition: 15s linear;
+        transform-style: preserve-3d;
+    }
+    div{
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      transform:rotateZ(360deg);
+
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+    }
+    section:hover{
+        transform: rotatex(360deg) rotatez(2000deg);
+        transition: 10s linear;
+    }
+    .d1{
+      transform:rotatex(0deg) translatez(50px) ;
+        background-color: #34f451;
+    }
+    .d2{
+        transform:rotatex(180deg) translatez(50px) ;
+        background-color: #c7254e;
+    }
+    .d3{
+        transform:rotateY(90deg) translatez(50px) ;
+        background-color: #ff6700;
+    }
+    .d4{
+        transform:rotateY(-90deg) translatez(50px) ;
+        background-color: #405871;
+    }
+    .d5{
+        transform:rotatex(90deg) translatez(50px) ;
+        background-color: #9cc5ef;
+    }
+    .d6{
+        transform:rotatex(-90deg) translatez(50px) ;
+        background-color: #9c67ef;
+    }
+  </style>
+</head>
+<body>
+<section>
+  <div class="d1"></div>
+  <div class="d2"></div>
+  <div class="d3"></div>
+  <div class="d4"></div>
+  <div class="d5"></div>
+  <div class="d6"></div>
+</section>
+</body>
+</html>

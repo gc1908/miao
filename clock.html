@@ -1,0 +1,194 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <style>
+  *{
+    margin: 0;
+    padding: 0;
+  }
+  .clock_bg{
+    position: relative;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    background-color: white;
+    border: 1px solid orange;
+    box-shadow: 0 0 40px -30px #9cc5ef;
+  }
+  .hour_location{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    font-size: 30px;
+    width: 20px;
+    height: 20px;
+    transform: translate(-50%,-50%);
+    text-align: center;
+    line-height: 20px;
+  }
+   .hour{
+    position: absolute;
+     top: 50%;
+     left: 50%;
+    font-size: 30px;
+     width: 50px;
+     height: 50px;
+   }
+
+ .h1{
+    transform: rotate(-60deg) translate(220px) rotate(60deg)  translate(-50%) ;
+  }
+  .h2{
+    transform: rotate(-30deg) translate(220px) rotate(30deg) translate(-50%);
+  }
+  .h3{
+    transform:rotate(-0deg) translate(220px) rotate(0deg)  translate(-50%);
+  }
+  .h4{
+    transform:rotate(30deg) translate(220px) rotate(-30deg)  translate(-50%);
+  }
+  .h5{
+    transform:rotate(60deg) translate(220px) rotate(-60deg)  translate(-50%);
+  }
+  .h6{
+     transform: rotate(90deg) translate(220px) rotate(-90deg)  translate(-50%);
+   }
+  .h7{
+    transform: rotate(120deg) translate(220px) rotate(-120deg)  translate(-50%);
+    }
+  .h8{
+    transform: rotate(150deg) translate(220px) rotate(-150deg) translate(-50%);
+  }
+  .h9{
+    transform:rotate(180deg) translate(220px) rotate(-180deg)  translate(-50%);
+  }
+  .h10{
+    transform: rotate(210deg) translate(220px) rotate(-210deg)  translate(-50%);
+  }
+  .h11{
+     transform: rotate(240deg) translate(220px) rotate(-240deg)  translate(-50%);
+   }
+  .h12{
+    transform: rotate(270deg) translate(220px) rotate(-270deg)  translate(-50%);
+  }
+  .hand_loc{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    background-color: black;
+    transform: translate(-50%,-50%);
+    z-index: 10;
+
+  }
+  .hour_hand{
+    /*transform: translate(50%);*/
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 10px;
+    height: 100px;
+    border-radius: 50% 50% 0 0/20% 20% 0 0;
+    background-color: black;
+    margin: auto;
+    transform-origin:center bottom;
+  }
+  .minute_hand{
+   /*transform: translateX(50%);*/
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 5px;
+    height: 150px;
+    border-radius: 50% 50% 0 0/20% 20% 0 0;
+    background-color: black;
+    margin: auto;
+    transform-origin:center bottom;
+  }
+  .second_hand{
+    /*transform: translateX(50%);*/
+    position: absolute;
+    bottom: -20px;
+    left: 0;
+    right: 0;
+    width: 3px;
+    height: 200px;
+    border-radius: 50% 50% 0 0/20% 20% 0 0;
+    background-color: red;
+    animation:dou 1s ease-out infinite ;
+    transform-origin: center calc( 100% - 20px );
+    margin: auto;
+  }
+  .minute_xuanzhuan{
+    animation: xuanzhuan 3600s steps(60,end) infinite;
+  }
+  .hour_xuanzhuan{
+    animation: xuanzhuan 216000s steps(60,end) infinite;
+  }
+  .second_xuanzhuan{
+    animation: xuanzhuan 60s steps(60,end) infinite;
+  }
+  @keyframes xuanzhuan {
+    from{
+      transform:rotate(0deg) ;
+    }
+    to{
+      transform:rotate(360deg) ;
+    }
+  }
+  @keyframes dou {
+    0% {
+      transform: rotate(0);
+    }
+    5% {
+      transform: rotate(2deg);
+    }
+    10% {
+      transform: rotate(0);
+    }
+    15% {
+      transform: rotate(-1deg);
+    }
+    20% {
+      transform: rotate(0);
+    }
+    100% {
+      transform: rotate(0);
+    }
+  }
+  </style>
+</head>
+<div class="clock_bg">
+  <div class="hour_location">
+    <h2 class="hour h1">1</h2>
+    <h2 class="hour h2">2</h2>
+    <h2 class="hour h3">3</h2>
+    <h2 class="hour h4">4</h2>
+    <h2 class="hour h5">5</h2>
+    <h2 class="hour h6">6</h2>
+    <h2 class="hour h7">7</h2>
+    <h2 class="hour h8">8</h2>
+    <h2 class="hour h9">9</h2>
+    <h2 class="hour h10">10</h2>
+    <h2 class="hour h11">11</h2>
+    <h2 class="hour h12">12</h2>
+  </div>
+  <div class="hand_loc hour_xuanzhuan">
+    <div class="hour_hand"></div>
+  </div>
+  <div class="hand_loc minute_xuanzhuan">
+    <div class="minute_hand"></div>
+  </div>
+  <div class="hand_loc second_xuanzhuan">
+    <div class="second_hand"></div>
+  </div>
+</div>
+<body>
+</body>
+</html>

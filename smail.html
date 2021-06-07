@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>笑脸</title>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+    }
+    /*正反旋转法*/
+    /* div{
+       text-align: center;
+       width: 500px;
+       height: 500px;
+       border-radius: 500px;
+       border: 1px solid black;
+       transform:rotate(0deg) ;
+     }
+     p{
+       transform:rotate(0deg) ;
+     }
+     div:hover{
+       transition: 10s;
+       transform:rotate(-360deg) ;
+     }
+     div:hover>p{
+       transition: 10s;
+       transform:rotate(360deg) ;
+     }*/
+    /*重定位法*/
+    div{
+      text-align: center;
+      width: 500px;
+      height: 500px;
+      border-radius: 500px;
+      line-height: 500px;
+      border: 1px solid black;
+
+    }
+    p{
+      transform:rotate(0deg) translate(250px) rotate(0deg);
+    }
+    div:hover p{
+      transition: 10s;
+      transform:rotate(360deg) translate(250px) rotate(-360deg);
+    }
+  </style>
+</head>
+<body>
+<div>
+  <p>我</p>
+</div>
+</body>
+</html>

@@ -7,42 +7,37 @@
     *{
       margin: 0;
       padding: 0;
-      overflow: auto;
       border: 1px solid black;
+      flex-grow: 1;
     }
     html,body{
       height: 100%;
-    }
-    div{
-      margin-left: -5px;
+      display: flex;
+      border: none;
     }
     .a1{
-      display: inline-block;
       width: 200px;
       height: 100%;
     }
     .content{
-      display: inline-block;
       height: 100%;
       width: calc(100% - 603px);
     }
     .a2{
       height: 75px;
-      display: inline-block;
       width: 100%;
     }
     .a3{
       width: 100%;
-      display: inline-block;
-      height: 100%;
+      height: calc(100% - 75px);
+      overflow: auto;
     }
     .a4{
-      display: inline-block;
       width: 200px;
       height: 100%;
     }
     .a5{
-      display: inline-block;
+      justify-content: flex-end;
       width: 200px;
       height: 100%;
     }

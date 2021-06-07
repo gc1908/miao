@@ -8,34 +8,104 @@
             padding: 0;
             margin: 0;
         }
-        input{
+        div{
             position: relative;
-            z-index: 10;
+            width: 600px;
+            height: 300px;
+        }
+        main{
+            position: relative;
+            width: 300%;
+            height: 300px;
+            animation:slide1 10s linear infinite;
+        }
+        input{
+            display: none;
         }
        img{
-           position: absolute;
-           left: 100%;
-           width: 100vw;
-           height: 30vh;
-           transition:left 1s ;
+           float: left;
+           width: 600px;
+           height: 300px;
+           margin-left: 0;
        }
-        /*img:nth-child伪类选择的时当前父元素的第n个元素，同时还是img的元素，两者同时符合才能选中*/
-        input:checked:nth-child(1)~img:nth-child(4),
-        input:checked:nth-child(2)~img:nth-child(5),
-        input:checked:nth-child(3)~img:nth-child(6)
-        {
-            left: 0;
+       @keyframes slide1 {
+           0% { margin-left:0;}
+           23% { margin-left:0;}
+           33% { margin-left:-600px;}
+           56% { margin-left:-600px;}
+           66% { margin-left:-1200px;}
+           90% { margin-left:-1200px;}
+           100% {margin-left:0;}
+       }
+        @-webkit-keyframes slide2 {
+            0% { margin-left:-600px;}
+            23% { margin-left:-600px;}
+            33% { margin-left:-1200px;}
+            56% { margin-left:-1200px;}
+            66% { margin-left:0;}
+            90% { margin-left:0;}
+            100% {margin-left:-600px;}
         }
+
+        @-webkit-keyframes slide3 {
+            0% { margin-left:-1200px;}
+            23% { margin-left:-1200px;}
+            33% { margin-left:0;}
+            56% { margin-left:0;}
+            66% { margin-left:-600px;}
+            90% { margin-left:-600px;}
+            100% {margin-left:-1200px;}
+        }
+
+        #first:checked ~ main{
+            animation-name:slide1;
+        }
+        #second:checked ~ main{
+            animation-name:slide2;
+        }
+        #third:checked ~ main{
+            -webkit-animation-name:slide3;
+        }
+        #opts {
+            width:600px;
+            height:40px;
+            margin:auto;
+            color:#fff;
+            text-align:center;
+            font:16px/30px Microsoft Yahei;
+            position: absolute;
+            top: 260px;
+            left: 250px;
+            z-index: 10;
+        }
+
+        #opts label {
+            float:left;
+            width:30px;
+            height:30px;
+            margin-right:10px;
+            background:#cccccc;
+            cursor:pointer;
+            border-radius: 50%;
+        }
+
     </style>
 </head>
 <body>
+<div>
+        <input type="radio" name="radio_button" checked id="first">
+        <input type="radio" name="radio_button" id="second">
+        <input type="radio" name="radio_button" id="third">
+    <div id="opts">
+        <label for="first">1</label>
+        <label for="second">2</label>
+        <label for="third">3</label>
+    </div>
  <main>
-     <input type="radio" name="radio_button" checked>
-     <input type="radio" name="radio_button">
-     <input type="radio" name="radio_button">
      <img src="VCG41182719058.webp" >
      <img src="img.png">
      <img src="VCG211258126145.jpg">
  </main>
+</div>
 </body>
 </html>
