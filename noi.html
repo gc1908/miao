@@ -34,10 +34,9 @@
     var a,b;
     a=Number(prompt("请输入a的值"));
     b=Number(prompt("请输入b的值"));
-    var d=(a+b)/c;
-    var e=(a+b)%c;
-    console.log(d);
-    console.log(e);
+    var d=a/b;
+    var e=a%b;
+    console.log(d,e);
   </script>
 
   /*计算分数的浮点数值保留9位*/
@@ -61,11 +60,11 @@
   /*对于多项式f(x) = ax3 + bx2 + cx + d 和给定的a, b, c, d, x，计算f(x)的值。*/
   <script id="ch0103/07">
     var x,a,b,c,d,e;
+    x=Number(prompt("请输入x的值"));
     a=Number(prompt("请输入a的值"));
     b=Number(prompt("请输入b的值"));
     c=Number(prompt("请输入c的值"));
     d=Number(prompt("请输入d的值"));
-    x=Number(prompt("请输入x的值"));
     e = (a * x * x * x)+(b * x * x)+(c * x )+d;
     console.log(e);
   </script>
@@ -102,20 +101,20 @@
 
   /*取余*/、
   <script id="ch0103/11">
-    var a,b,c;
+    var a,b;
     a=Number(prompt("请输入a的值"));
     b=Number(prompt("请输入b的值"));
-    var d=(a+b)%c;
+    var d=a%b;
     console.log( d );
   </script>
 
   /*对于半径为r的球，其体积的计算公式为V=4/3*πr3，这里取π= 3.14。 现给定r，求V。*/
   <script id="ch0103/12">
     var v,r;
-    var π= 3.14;
+    var pi= 3.14;
     r=Number(prompt("请输入球的半径"));
-    v=4/3*π*r*r*r;
-    console.log( v );
+    v=4/3*pi*r*r*r;
+    console.log(v);
   </script>
 
   /*将一个三位数反向输出。*/
