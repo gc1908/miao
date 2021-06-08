@@ -38,7 +38,7 @@
     b=Number(prompt("请输入b的值"));
     d=a/b;
     e=a%b;
-    console.log(d,e);
+    console.log(Math.floor(d),e);
   </script>
 
   /*计算分数的浮点数值保留9位*/
@@ -55,7 +55,7 @@
     var a,b,d;
     a=Number(prompt("请输入a的值"));
     b=Number(prompt("请输入b的值"));
-    d=a/b*100;
+    d=b/a*100;
     console.log(d.toFixed(3)+"%");
   </script>
 
@@ -68,7 +68,7 @@
     c=Number(prompt("请输入c的值"));
     d=Number(prompt("请输入d的值"));
     e = (a * x * x * x)+(b * x * x)+(c * x )+d;
-    console.log(e);
+    console.log(e.toFixed(7));
   </script>
 
   /*利用公式 C = 5 * (F-32) / 9 （其中C表示摄氏温度，F表示华氏温度） 进行计算转化。保留小数点后5位*/
@@ -107,7 +107,7 @@
     a=Number(prompt("请输入a的值"));
     b=Number(prompt("请输入b的值"));
     d=a%b;
-    console.log( d );
+    console.log( d.toFixed(4) );
   </script>
 
   /*对于半径为r的球，其体积的计算公式为V=4/3*πr3，这里取π= 3.14。 现给定r，求V。*/
@@ -116,16 +116,16 @@
     var pi= 3.14;
     r=Number(prompt("请输入球的半径"));
     v=4/3*pi*r*r*r;
-    console.log(v);
+    console.log(v.toFixed(2));
   </script>
 
   /*将一个三位数反向输出。*/
   <script id="ch0103/13">
     var a,b,c,d;
     a=Number(prompt("请输入给1个三位数"));
-    b=a/100;
-    c=a/10;
-    d=a%100;
+    b=Math.floor(a/100);
+    c=Math.floor((a%100)/10);
+    d=a%10;
     console.log( d.toString()+c.toString()+b.toString() );
   </script>
 
@@ -174,7 +174,7 @@
     z=Math.sqrt(((x2-x3)*(x2-x3))+((y2-y3)*(y2-y3)));
     q=(x+y+z)/2;
     n=Math.sqrt(q*(q-x)*(q-y)*(q-z));
-    console.log(n)
+    console.log(n.toFixed(2))
   </script>
 
   /*等差数列*/
