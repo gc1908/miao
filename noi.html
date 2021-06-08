@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  /*a+b和*/
+  <script id="ch0103/01">
+    var a,b;
+    a=Number(prompt("请输入a的值"));
+    b=Number(prompt("请输入b的值"));
+    console.log(a+b);
+  </script>
+
+  /*(a+b)*c*/
+  <script id="ch0103/02">
+    var a,b,c;
+    a=Number(prompt("请输入a的值"));
+    b=Number(prompt("请输入b的值"));
+    var d=(a+b)*c;
+    console.log(true?-10000<d<10000:alert("求出的结果小于负10000或者大于10000"));
+  </script>
+
+  /*(a+b)/c*/
+  <script id="ch0103/03">
+    var a,b,c;
+    a=Number(prompt("请输入a的值"));
+    b=Number(prompt("请输入b的值"));
+    var d=(a+b)/c;
+    console.log(true?-10000<d<10000:alert("求出的结果小于负10000或者大于10000"));
+  </script>
+
+  /*(a+b)/c以及(a+b)%c*/
+  <script id="ch0103/04">
+    var a,b;
+    a=Number(prompt("请输入a的值"));
+    b=Number(prompt("请输入b的值"));
+    var d=(a+b)/c;
+    var e=(a+b)%c;
+    console.log(d);
+    console.log(e);
+  </script>
+
+  /*计算分数的浮点数值保留9位*/
+  <script id="ch0103/05">
+    var a,b;
+    a=Number(prompt("请输入a的值"));
+    b=Number(prompt("请输入b的值"));
+    var  d=a/b;
+    console.log(d.toFixed(9));
+  </script>
+
+  /*甲流死亡百分比*/
+  <script id="ch0103/06">
+    var a,b;
+    a=Number(prompt("请输入a的值"));
+    b=Number(prompt("请输入b的值"));
+    var d=a/b*100;
+    console.log(d.toFixed(3)+"%");
+  </script>
+
+  /*对于多项式f(x) = ax3 + bx2 + cx + d 和给定的a, b, c, d, x，计算f(x)的值。*/
+  <script id="ch0103/07">
+    var x,a,b,c,d,e;
+    a=Number(true?-100<prompt("请输入a的值")<100:alert("绝对值必须在100以内"));
+    b=Number(true?-100<prompt("请输入b的值")<100:alert("绝对值必须在100以内"));
+    c=Number(true?-100<prompt("请输入c的值")<100:alert("绝对值必须在100以内"));
+    d=Number(true?-100<prompt("请输入d的值")<100:alert("绝对值必须在100以内"));
+    x=Number(true?-100<prompt("请输入x的值")<100:alert("绝对值必须在100以内"));
+    e = (a * x * x * x)+(b * x * x)+(c * x )+d;
+    console.log(e);
+  </script>
+
+  /*利用公式 C = 5 * (F-32) / 9 （其中C表示摄氏温度，F表示华氏温度） 进行计算转化。保留小数点后5位*/
+  <script id="ch0103/08">
+    var C,F;
+    F=Number(prompt("请输入华氏度"));
+    C=5 * (F-32) / 9;
+    console.log(C.toFixed(5));
+  </script>
+
+  /*输出一行，包含三个数，分别表示圆的直径、周长、面积，数与数之间以一个空格分开，每个数保留小数点后4位。*/
+  <script id="ch0103/09">
+    var r,diameter,perimeter,area;
+    var pi=3.14159;
+    r=Number(prompt("请输入半径"));
+    diameter=2 * r;
+    perimeter=2*pi*r;
+    area=pi*r*r;
+    console.log(diameter.toFixed(4));
+    console.log(perimeter.toFixed(4));
+    console.log(area.toFixed(4));
+  </script>
+
+  /* 求电阻，保留小数点后2位 R = 1/(1/r1 + 1/r2)*/
+  <script id="ch0103/10">
+    var r1,r2;
+    r1=Number(prompt("请输入r1的值"));
+    r2=Number(prompt("请输入r2的值"));
+    var  r=1/((1/r1)+(1/r2));
+    console.log(r.toFixed(2));
+  </script>
+
+  /*取余*/、
+  <script id="ch0103/11">
+    var a,b,c;
+    a=Number(prompt("请输入a的值"));
+    b=Number(prompt("请输入b的值"));
+    var d=(a+b)%c;
+    console.log( d );
+  </script>
+
+  /*对于半径为r的球，其体积的计算公式为V=4/3*πr3，这里取π= 3.14。 现给定r，求V。*/
+  <script id="ch0103/12">
+    var v,r;
+    var π= 3.14;
+    r=Number(prompt("请输入球的半径"));
+    v=4/3*π*r*r*r;
+    console.log( v );
+  </script>
+
+  /*将一个三位数反向输出。*/
+  <script id="ch0103/13">
+    var a,b,c,d;
+    a=Number(prompt("请输入给1个三位数"));
+    b=a/100;
+    c=a/10;
+    d=a%100;
+    console.log( d.toString()+c.toString()+b.toString() );
+  </script>
+
+  /*20升水 如果一个圆桶的深为h厘米，底面半径为r厘米，那么它最多能装Pi * r * r * h立方厘米的水。(设Pi=3.14159) 1升 = 1000毫升 1毫升 = 1 立方厘米*/
+  <script id="ch0103/14">
+    var x,h,r;
+    h=Number(prompt("请输入h的值"));
+    r=Number(prompt("请输入r的值"));
+    var Pi=3.14159;
+    x=20/(Pi * r * r * h)*1000;
+    console.log(Math.ceil(x));
+  </script>
+
+  /*你买了一箱n个苹果，很不幸的是买完时箱子里混进了一条虫子。虫子每x小时能吃掉一个苹果，假设虫子在吃完一个苹果之前不会吃另一个，那么经过y小时你还有多少个完整的苹果？*/
+  <script id="ch0103/15">
+    var n,x,y;
+    n=Number(prompt("请输入你的苹果数量"));
+    x=Number(prompt("每x小时吃1个苹果"));
+    y=Number(prompt("吃了y小时"));
+    n=n-Math.ceil(y/x);
+    console.log(n);
+  </script>
+
+  /*已知线段的两个端点的坐标A（Xa,Ya），B（Xb，Yb），求线段AB的长度。保留到小数点后3位。*/
+  <script id="ch0103/16">
+    var n,xa,ya,xb,yb;
+    xa=Number(prompt("请输入xa"));
+    ya=Number(prompt("请输入ya"));
+    xb=Number(prompt("请输入xb"));
+    yb=Number(prompt("请输入yb"));
+    n=Math.sqrt(((xa-xb)*(xa-xb))+((ya-yb)*(ya-yb)));
+    console.log(n.toFixed(3));
+  </script>
+
+  /*平面上有一个三角形，它的三个顶点坐标分别为(x1, y1), (x2, y2), (x3, y3)，那么请问这个三角形的面积是多少。*/
+  <script id="ch0103/17">
+    var n,x1, y1, x2, y2, x3, y3,x,y,z,q;
+    x1=Number(prompt("请输入x1"));
+    y1=Number(prompt("请输入y1"));
+    x2=Number(prompt("请输入x2"));
+    y2=Number(prompt("请输入y2"));
+    x3=Number(prompt("请输入x3"));
+    y3=Number(prompt("请输入y3"));
+    x=Math.sqrt(((x1-x2)*(x1-x2))+((y1-y2)*(y1-y2)));
+    y=Math.sqrt(((x1-x3)*(x1-x3))+((y1-y3)*(y1-y3)));
+    z=Math.sqrt(((x2-x3)*(x2-x3))+((y2-y3)*(y2-y3)));
+    q=(x+y+z)/2;
+    n=Math.sqrt(q*(q-x)*(q-y)*(q-z));
+    console.log(n)
+  </script>
+
+  /*等差数列*/
+  <script id="ch0103/18">
+    var d,a1, a2,an,n;
+    a1=Number(prompt("请输入a1"));
+    a2=Number(prompt("请输入a2"));
+    n=Number(prompt("请输入n"));
+    d=a2-a1;
+    an=a1+(n-1)*d;
+    console.log(an);
+  </script>
+
+  /*a*b */
+  <script id="ch0103/19">
+    var a,b,c;
+    a=Number(prompt("请输入a的值"));
+    b=Number(prompt("请输入b的值"));
+    c=a*b;
+    console.log(c);
+  </script>
+
+  /*2的幂*/
+  <script id="ch0103/20">
+    var a,b;
+    a=Number(prompt("请输入几次方"));
+    b=2**a;
+    console.log(b);
+  </script>
+</head>
+<body>
+
+</body>
+</html>
