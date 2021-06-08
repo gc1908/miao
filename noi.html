@@ -17,7 +17,7 @@
     a=Number(prompt("请输入a的值"));
     b=Number(prompt("请输入b的值"));
     var d=(a+b)*c;
-    console.log(true?-10000<d<10000:alert("求出的结果小于负10000或者大于10000"));
+    console.log(d);
   </script>
 
   /*(a+b)/c*/
@@ -26,7 +26,7 @@
     a=Number(prompt("请输入a的值"));
     b=Number(prompt("请输入b的值"));
     var d=(a+b)/c;
-    console.log(true?-10000<d<10000:alert("求出的结果小于负10000或者大于10000"));
+    console.log(d);
   </script>
 
   /*(a+b)/c以及(a+b)%c*/
@@ -61,11 +61,11 @@
   /*对于多项式f(x) = ax3 + bx2 + cx + d 和给定的a, b, c, d, x，计算f(x)的值。*/
   <script id="ch0103/07">
     var x,a,b,c,d,e;
-    a=Number(true?-100<prompt("请输入a的值")<100:alert("绝对值必须在100以内"));
-    b=Number(true?-100<prompt("请输入b的值")<100:alert("绝对值必须在100以内"));
-    c=Number(true?-100<prompt("请输入c的值")<100:alert("绝对值必须在100以内"));
-    d=Number(true?-100<prompt("请输入d的值")<100:alert("绝对值必须在100以内"));
-    x=Number(true?-100<prompt("请输入x的值")<100:alert("绝对值必须在100以内"));
+    a=Number(prompt("请输入a的值"));
+    b=Number(prompt("请输入b的值"));
+    c=Number(prompt("请输入c的值"));
+    d=Number(prompt("请输入d的值"));
+    x=Number(prompt("请输入x的值"));
     e = (a * x * x * x)+(b * x * x)+(c * x )+d;
     console.log(e);
   </script>
