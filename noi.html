@@ -330,7 +330,7 @@
     else if(a%5===0){
       console.log("5");
     }
-    else if(a%a%7===0){
+    else if(a%7===0){
       console.log("7");
     }
     else {
@@ -415,6 +415,7 @@
       }
       else  if(x>1000){
         z+=Math.ceil((x-1000)/500)*4+8
+        console.log(z);
       }
     }
   </script>
@@ -456,7 +457,7 @@
     if((a%4===0&&a%100!==0)||a%400===0){
       console.log("Y");
     }
-    else if(na%3200===0){
+    else if(a%3200===0){
       console.log("N");
     }
     else {
@@ -482,10 +483,6 @@
     x=Number(prompt("请输入第一个数"));
     y=Number(prompt("请输入第二个数"));
     z=prompt("请输入运算符");
-    if(z!=="+"||z!=="-"||z!=="*"||z!=="/"){
-      console.log("Invalid operator!");
-    }
-    else {
       if(z==="+"){
         value=x+y;
         console.log(value)
@@ -499,10 +496,16 @@
         console.log(value)
       }
     else if(z==="/"){
-        value=x/y;
-        console.log(value)
-      }
+        if(y===0)
+        console.log("Divided by zero!")
+        else {
+          value=x/y;
+          console.log(value)
+        }
     }
+    else {
+      console.log("Invalid operator!");
+      }
   </script>
 
   /*一元二次*/
