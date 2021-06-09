@@ -248,10 +248,10 @@
     var a;
     a=Number(prompt("请输入字符").charCodeAt());
     if(a%2===0){
-      console.log("no");
+      console.log("NO");
     }
     else {
-      console.log("yes");
+      console.log("YES");
     }
   </script>
 
@@ -333,6 +333,9 @@
     else if(a%a%7===0){
       console.log("7");
     }
+    else {
+      console.log("n");
+    }
   </script>
 
   /*不及格*/
@@ -389,15 +392,15 @@
     x=Number(prompt("请输入x"));
     if(0 <= x < 5){
       y=-x+2.5;
-      console.log(y);
+      console.log(y.toFixed(3));
     }
     else if(5 <= x < 10){
       y=2-1.5*(x-3)(x-3);
-      console.log(y);
+      console.log(y.toFixed(3));
     }
     else if(10 <= x < 20){
       y=x/2-1.5;
-      console.log(y);
+      console.log(y.toFixed(3));
     }
   </script>
   /*邮费*/
@@ -405,13 +408,13 @@
     var x,y,z=0;
     x=Number(prompt("请输入重量"));
     y=prompt("请输入是否加急");
-    if(y="y"){
+    if(y==="y"){
       z+=5;
       if(x<1000){
         console.log(z+=8);
       }
       else  if(x>1000){
-        z=Math.ceil((x-1000)/500)+8
+        z+=Math.ceil((x-1000)/500)*4+8
       }
     }
   </script>
@@ -450,10 +453,10 @@
   <script id="ch0104/17">
     var a;
     a=Number(prompt("请输入日期"));
-    if((a%4===0&&n%100!==0)||n%400===0){
+    if((a%4===0&&a%100!==0)||a%400===0){
       console.log("Y");
     }
-    else if(n%3200===0){
+    else if(na%3200===0){
       console.log("N");
     }
     else {
@@ -479,23 +482,23 @@
     x=Number(prompt("请输入第一个数"));
     y=Number(prompt("请输入第二个数"));
     z=prompt("请输入运算符");
-    if(z!="+"||z!="-"||z!="*"||z!="/"){
+    if(z!=="+"||z!=="-"||z!=="*"||z!=="/"){
       console.log("Invalid operator!");
     }
     else {
-      if(z=="+"){
+      if(z==="+"){
         value=x+y;
         console.log(value)
       }
-      else if(z=="-"){
+      else if(z==="-"){
         value=x-y;
         console.log(value)
       }
-    else if(z=="*"){
+    else if(z==="*"){
         value=x*y;
         console.log(value)
       }
-    else if(z=="/"){
+    else if(z==="/"){
         value=x/y;
         console.log(value)
       }
@@ -504,13 +507,13 @@
 
   /*一元二次*/
   <script id="ch0104/20">
-    var x,y,z,x1,x2;
-    x=Number(prompt("请输入第一个数"));
-    y=Number(prompt("请输入第二个数"));
-    z=Number(prompt("请输入第三个数"));
+    var a,b,c,x1,x2;
+    a=Number(prompt("请输入第一个数"));
+    b=Number(prompt("请输入第二个数"));
+    c=Number(prompt("请输入第三个数"));
     x1 = (-b + Math.sqrt(b*b-4*a*c))/(2*a);
     x2 = (-b - Math.sqrt(b*b-4*a*c))/(2*a)
-    if(b*b==4*a*c){
+    if(b*b===4*a*c){
       console.log("x1=x2"+x1.toFixed(5))
     }
     else if(b*b>4*a*c){
