@@ -770,7 +770,7 @@
         count=1.00+(r/100*i);
         m=200*count;
         if(m<y*i){
-            temp=i;
+            temp=i+1;
             break
         }else {
             temp="Impossible";
@@ -937,23 +937,27 @@
         temp1=c*100+b*10+a;
         if(nine===temp1){
             console.log(i);
+            break;
         }
     }
 </script>
 
 /*统计满足条件的4位数个数*/
 <script id="ch0105/26">
-    var a,b,c,d,temp1;
-    for (var i=1000;i<10000;i++) {
-        a=Math.floor(i/100%10);
-        b=Math.floor((i%100)/10);
-        c=i%10;
-        d=Math.floor(i/1000);
+    var a,b,c,d,temp1,number,sum=0;
+    var n=Number(prompt("请输入总数量"));
+    for (var i=0;i<n;i++) {
+        number=Number(prompt("请输入第"+i+"个数"));
+        d=Math.floor(number/1000%10);
+        a=Math.floor(number/100%10);
+        b=Math.floor(number/10%10);
+        c=number%10;
         temp1=c-d-a-b;
         if(temp1>0){
-            console.log(i);
+            sum++;
         }
     }
+    console.log(sum);
 </script>
 
 /*sn*/
@@ -972,12 +976,17 @@
 
 /*da*/
 <script id="ch0105/28">
-    var a,temp="",k;
+    var a,temp="",k,l=false;
     a = Number(prompt("请输入数值"));
     for(var j=0;j<100;j++){
         if(Math.floor(a/(10**j))===0){
             for(k=0;k<j;k++){
-                temp+=Math.floor(a/(10**k)%10)+" ";
+                if (l)
+                {
+                    temp+=" ";
+                }
+                temp+=Math.floor(a/(10**k)%10);
+                l=true;
             }
             break;
         }
@@ -1142,7 +1151,7 @@
 
 /*导函数*/
 <script id="ch0105/38">
-    var n,temp="",value=0,b=0;
+    var n,temp="",value=0,b=0,l=false;
     n=Number(prompt("请输入总项数"));
     for(var i= 0;i<n;i++){
         var a=Number(prompt("请输入项数"));
@@ -1151,7 +1160,11 @@
             b=Number(prompt("请输入第"+j+"项数"));
             if(j>0){
                 value=b*j;
-                temp+=value+" ";
+                if (l){
+                    temp+=" ";
+                }
+                temp+=value;
+                l=true;
             }
         }
         if(a===0){
@@ -1159,6 +1172,7 @@
             continue;
         }
         console.log(temp+"\n");
+        l=false
     }
 </script>
 
@@ -1237,19 +1251,19 @@
     kong = Number(prompt("请输入空心/实心"));
 
     for (var i=0;i<width;i++){
-        content+=value+"";
+        content+=value;
     }
     console.log(content+"\n")/*最上行*/
 
     for (var j=0;j<height-2;j++){
         var tecontent="";
-        for (i=0;i<width-1;i++){
+        for (i=0;i<width;i++){
             if(i===0||i===width-1){
-                tecontent += (value+"");
+                tecontent += (value);
             }
-            if (kong===1)
-                tecontent += (value+"");
-            else  if(kong===0)(
+            if (kong===1&&i!==0&&i!==width-1)
+                tecontent += (value);
+            else  if(kong===0&&i!==0&&i!==width-1)(
                 tecontent += " "
             )
         }
