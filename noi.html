@@ -927,17 +927,20 @@
 
 /*转换进制*/
 <script id="ch0105/25">
-    var seven,nine,a,b,c,temp1;
-    for (var i=1;i<1000000000;i++) {
-        seven=Number(i.toString(7));
-        nine=Number(i.toString(9))
-        a=Math.floor(seven/100);
-        b=Math.floor((seven%100)/10);
-        c=seven%10;
-        temp1=c*100+b*10+a;
-        if(nine===temp1){
-            console.log(i);
-            break;
+    for (var x = 81; x <= 342; x++) {
+        var a7 = x % 7 // 七进制个位数
+        var b7 = (x - a7) / 7 % 7 // 七进制‘十’位数
+        var c7 = (x - a7 - b7 * 7) / 49 % 7 // 七进制‘百’位数
+
+        var a9 = x % 9 // 九进制个位数
+        var b9 = (x - a9) / 9 % 9 // 九进制‘十’位数
+        var c9 = (x - a9 - b9 * 9) / 81 % 9 // 九进制‘百’位数
+
+        if (a7 == c9 && b7 == b9 && c7 == a9) {
+            console.log(x)
+            console.log('' + c7 + b7 + a7)
+            console.log('' + c9 + b9 + a9)
+            break
         }
     }
 </script>
@@ -1169,10 +1172,10 @@
             }
         }
         if(a===0){
-            console.log("0"+"\n");``
+            console.log("0");``
             continue;
         }
-        console.log(temp+"\n");
+        console.log(temp);
     }
 </script>
 
