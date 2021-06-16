@@ -554,7 +554,7 @@
       avg+=avg_count[i];
     }
     x=avg/n;
-    console.log(x);
+    console.log(x.toFixed(2));
   </script>
 
   /*平均结余*/
@@ -580,7 +580,7 @@
       avg+=avg_count[i];
     }
     x=avg/n;
-    console.log(x);
+    console.log(x.toFixed(4));
   </script>
 
   /*和与平均*/
@@ -664,9 +664,9 @@
   var m,n,mount=0,avg_count=0;
   m=Number(prompt("请输入m"));
   n=Number(prompt("请输入n"));
-  for(;m<n;n++){
-      if(n%2!==0){
-        avg_count+=n;
+  for(var i=m;i<=n;i++){
+      if(i%2!==0){
+        avg_count+=i;
       }
   }
   console.log(avg_count);
@@ -677,10 +677,11 @@
   var m,n,mount=0,avg_count=0;
   m=Number(prompt("请输入m"));
   n=Number(prompt("请输入n"));
-  for(;m<n;n++){
-    if(n%17===0){
-      avg_count+=n;
-    }
+  for(var i=m;i<=n;i++){
+      var st=(i/17).toString().indexOf(".");
+      if(st===-1){
+          avg_count+=i;
+      }
   }
   console.log(avg_count);
 </script>
@@ -725,13 +726,14 @@
 
 /*冥陈*/
 <script id="ch0105/13">
-  var n,m;
-  n=Number(prompt("请输入数字"));
-  m=Number(prompt("请输入冥"));
-  for(var i=0;i<m-1;i++){
-    n*=n;
-  }
-  console.log(n);
+    var n,m,temp=0;
+    n=Number(prompt("请输入数字"));
+    temp=1;
+    m=Number(prompt("请输入冥"));
+    for(var i=0;i<m;i++){
+        temp*=n;
+    }
+    console.log(temp);
 </script>
 
 /*人口*/
@@ -760,7 +762,7 @@
 
 /*买房*/
 <script id="ch0105/16">
-    var y,m=200,r,count,temp=0;
+    var y,m=200,r,count,temp=1;
     y=Number(prompt("请输入年薪"));
     r=Number(prompt("请输入增长"));
     count=1.00+(r/100);
@@ -793,24 +795,26 @@
 
 /*艾滋病*/
 <script id="ch0105/18">
-  var n,a;
-  var x=[];
-  var y=[];
-  var b=[];
-  n=Number(prompt("请输入样本容量"));
-  for(var i=0;i<n;i++){
-    x[i]=Number(prompt("请输入样本信息"));
-    y[i]=Number(prompt("请输入样本信息"));
-    a=x[1]/y[1];
-    if(a>b[i]){
-      console.log("better");
-    }else if(a<b[i]){
-      console.log("worse");
+    var n;
+    var x=[];
+    var y=[];
+    var b=[];
+    n=Number(prompt("请输入样本容量"));
+    for(var i=0;i<n;i++){
+        x[i]=Number(prompt("请输入第"+i+"样本信息"));
+        y[i]=Number(prompt("请输入第"+i+"样本信息"));
+        b[i]=(y[i]/x[i])*100;
+        if(i>0){
+            if(b[i]-b[0]>5){
+                console.log("better");
+            }else if(b[0]-b[i]>5){
+                console.log("worse");
+            }
+            else{
+                console.log("same");
+            }
+        }
     }
-    else{
-      console.log("same");
-    }
-  }
 </script>
 
 /*救人*/
@@ -836,13 +840,15 @@
 <script id="ch0105/20">
   var n,a=0;
   n = Number(prompt("请输入样本容量"));
-  for (var i = 0; i < 10; i++) {
+  for (var i = 1; i <= 10; i++) {
     a+=n;
     n/=2;
-    a+=n;
+    if(i<10){
+        a+=n;
+    }
   }
-  console.log(a);
-  console.log(n);
+  console.log(a.toFixed(4));
+  console.log(n.toFixed(7));
 </script>
 
 /*污污污角谷*/
@@ -863,33 +869,34 @@
 
 /*存钱*/
 <script id="ch0105/22">
-  var zong=0,n=0;
-  var temp=[];
-  for (var i = 1; i <= 12; i++) {
-    temp[i]= Number(prompt("请输入"+i+"月预算"));
-    zong+= temp[i];
-    if((zong%100)+300<temp[i]){
-      n=1;
-      console.log("-"+i)
+    var zong=0,n=0,yv=0,num=0;
+    var temp=[];
+    for (var i = 1; i <= 12; i++) {
+        temp[i]= Number(prompt("请输入"+i+"月预算"));
+        if((yv%100)+300<temp[i]){//判断是否超预算
+            n=1;
+            console.log("-"+i)
+        }
+        yv+=(300-temp[i]);
+        zong=yv%100;
     }
-  }
-  if(n===0) console.log(zong);
+    if(n===0) console.log((yv-zong)*1.2+zong);
 </script>
 
 /*买药*/
 <script id="ch0105/23">
-  var n,a,b=0;
-  var temp=[];
-  a = Number(prompt("请输入总数量"));
-  n = Number(prompt("请输入人数"));
-  for (var i = 0; i < n; i++) {
-    temp[i]= Number(prompt("请输入第"+i+"个人取药数量"));
-    zong+= temp[i];
-    if(a<temp){
-      b++;
+    var n,a,b=0,zong=0;
+    var temp=[];
+    a = Number(prompt("请输入总数量"));
+    n = Number(prompt("请输入人数"));
+    for (var i = 0; i < n; i++) {
+        temp[i]= Number(prompt("请输入第"+i+"个人取药数量"));
+        zong+= temp[i];
+        if(a>zong){
+            b++;
+        }
     }
-  }
-  console.log("-"+b)
+    console.log(b)
 </script>
 
 /血压*/
@@ -951,12 +958,13 @@
 
 /*sn*/
 <script id="ch0105/27">
-    var n=1,temp=0;
-    a = Number(prompt("请输入数值"));
+    var n,temp=0;
+    n = Number(prompt("请输入数值"));
     for (var i = 1; i < 9999999; i++) {
         temp+=(1 / i);
-        if(temp>a){
+        if(temp>n){
             console.log(i);
+            break;
         }
     }
 </script>
@@ -1027,25 +1035,29 @@
 
 /*开灯*/
 <script id="ch0105/31">
-    var a,temp=[],deng="";
+    var a,temp=[],deng="",l=false;
     a = Number(prompt("请输入灯数"));
     b = Number(prompt("请输入人数"));
-    for(var i=0;i<a;i++){
+    for(var i=1;i<=a;i++){
         temp[i]=1;
     }
 
-    for( i=0;i<a;i++){
-        for(var j=0;j<b;j++){
+    for( i=1;i<=a;i++){
+        for(var j=1;j<=b;j++){
             temp[j*i]=-temp[j*i];
         }
     }
 
-    for(var k=0;k<a;k++){
+    for(var k=1;k<=a;k++){
         if(temp[k]!==1){
-            deng+=k+"";
+            if(l){
+                deng+=",";
+            }
+            deng+=k;
+            l=true;
         }
     }
-    console.log(deng);
+    console.log(deng)
 </script>
 
 <script id="ch0105/32">
@@ -1143,7 +1155,7 @@
             }
         }
         if(a===0){
-            console.log("0");
+            console.log("0"+"\n");
             continue;
         }
         console.log(temp+"\n");
@@ -1231,7 +1243,7 @@
 
     for (var j=0;j<height-2;j++){
         var tecontent="";
-        for (i=0;i<width;i++){
+        for (i=0;i<width-1;i++){
             if(i===0||i===width-1){
                 tecontent += (value+"");
             }
@@ -1249,8 +1261,8 @@
 
 /*质数*/
 <script id="ch0105/43">
-    var number;
-    number = Number(prompt("请输入数字"));
+    var n;
+    n = Number(prompt("请输入数字"));
     for(var i=2;;i++){
         if(n%i===0){
             console.log(n/i);
@@ -1296,7 +1308,7 @@
             i--;
         }
     }
-    console.log(n);
+    console.log(money);
 </script>
 <body>
 
