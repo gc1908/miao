@@ -1156,11 +1156,12 @@
     for(var i= 0;i<n;i++){
         var a=Number(prompt("请输入项数"));
         temp="";
+        l=false;
         for(var j=a;j>=0;j--){
             b=Number(prompt("请输入第"+j+"项数"));
             if(j>0){
                 value=b*j;
-                if (l){
+                if(l){
                     temp+=" ";
                 }
                 temp+=value;
@@ -1168,11 +1169,10 @@
             }
         }
         if(a===0){
-            console.log("0"+"\n");
+            console.log("0"+"\n");``
             continue;
         }
         console.log(temp+"\n");
-        l=false
     }
 </script>
 
