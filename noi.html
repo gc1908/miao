@@ -936,7 +936,7 @@
         var b9 = (x - a9) / 9 % 9 // 九进制‘十’位数
         var c9 = (x - a9 - b9 * 9) / 81 % 9 // 九进制‘百’位数
 
-        if (a7 == c9 && b7 == b9 && c7 == a9) {
+        if (a7 === c9 && b7 === b9 && c7 === a9) {
             console.log(x)
             console.log('' + c7 + b7 + a7)
             console.log('' + c9 + b9 + a9)
@@ -1326,6 +1326,293 @@
         }
     }
     console.log(money);
+</script>
+/*narcissistic: 输入一个数，判断是否是水仙花数
+narcissistics: 输出10000以内的水仙花数
+palindrom: 判断一个数是否是回文数字
+*/
+<script id="narcissistic">
+    let n=Number(prompt("请输入一个数字"));
+    narcissistic(n);
+    function narcissistic(n){
+        let temp=0;
+        for (let j = 0; j < 20; j++) {/*判断是几位数*/
+            if (Math.floor(n/ (10 ** j)) === 0) {/*取每一位数的值*/
+                for (let k = 0; k < j; k++) {
+                    temp += (Math.floor(n / (10 ** k) % 10))**j;
+                }
+                if (temp===n){
+                    console.log("YES")
+                }
+                else {
+                    console.log("NO")
+                }
+                break;
+            }
+        }
+    }
+</script>
+<script id="narcissistics">
+    narcissistics();
+    function narcissistics(){
+        for (let i=0;i<=10000;i++){
+            let temp=0;
+            for (let j = 0; j < 20; j++) {/*判断是几位数*/
+                if (Math.floor(i/ (10 ** j)) === 0) {/*取每一位数的值*/
+                    for (let k = 0; k < j; k++) {
+                        temp += (Math.floor(i / (10 ** k) % 10))**j;
+                    }
+                    if (temp===i){
+                        console.log(i)
+                    }
+                    break;
+                }
+            }
+        }
+    }
+</script>
+<script id="palindrom">
+    let n=Number(prompt("请输入一个数字"));
+    palindrom(n);
+    function palindrom(n){
+        let temp1=0;
+        let temp2=0;
+        let value=true;
+        for (let j = 0; j < 20; j++) {/*判断是几位数*/
+            if (Math.floor(n/ (10 ** j)) === 0) {/*取每一位数的值*/
+                for (let k = 0; k < j/2; k++) {
+                    temp1= Math.floor(n / (10 ** k) % 10);
+                    temp2= Math.floor(n / (10 ** (j-k-1)) % 10);
+                    if (temp1!==temp2){
+                        value=false;
+                        break;
+                    }
+                }
+                break;
+            }
+        }
+        if (value===true){
+            console.log("YES")
+        }
+        else {
+            console.log("NO")
+        }
+    }
+</script>
+/*weekday: 输入年份与月份，输出这个月的第一天是周几
+complete-number: 判断一个数是否是完全数
+complete-numbers: 输出1000以内的完全数
+*/
+<script id="complete-number">
+    let n=Number(prompt("请输入一个数字"));
+    complete_number(n);
+    function complete_number(n){
+        let temp=0;
+        let value=Math.sqrt(n);
+        for (let i=0;i<=value;i++){
+            for (let j=Math.floor(value);j<=n;j++){
+                if(i*j===n){
+                    temp+=i;
+                    if(j!==n)
+                        temp+=j;
+                }
+            }
+        }
+        if (temp===n&&temp!==0&&temp!==1){
+            console.log("YES")
+        }
+        else {
+            console.log("NO")
+        }
+    }
+</script>
+
+<script id="complete-numbers">
+    complete_numbers();
+    function complete_numbers(){
+        for (let k=0;k<=1000;k++){
+            let temp=0;
+            let value=Math.sqrt(k);
+            for (let i=1;i<=value;i++){
+                for (let j=Math.floor(value);j<=k;j++){
+                    if(i*j===k){
+                        temp+=i;
+                        if(j!==k)
+                            temp+=j;
+                    }
+                }
+            }
+            if (temp===k&&temp!==0&&temp!==1){
+                console.log(k)
+            }
+
+        }
+    }
+</script>
+/*prime: 判断一个数是否是素数
+primes: 输出1000以内的素数
+*/
+<script id="prime">
+    let n=Number(prompt("请输入一个数字"));
+    let temp=true;
+    prime(n);
+    function prime(n){
+        for (let i=2;i<n;i++) {
+            if (n % i === 0) {
+                temp = false;
+            }
+        }
+        if(temp===true){
+            console.log("YES")
+        }else {
+            console.log("NO")
+        }
+    }
+</script>
+
+<script id="primes">
+    primes();
+    function primes(){
+        for(let i=2;i<1000;i++){
+            let  sqi=Math.sqrt(i);
+            let  isprome=true;
+            for(let j=2;j<=sqi;j++){
+                if(i%j===0){
+                    isprome=false;
+                    break;
+                }
+            }
+            if(isprome===true){
+                console.log(i);
+            }
+
+        }
+    }
+</script>
+/*lcf&lcm: 输入两个数，输出它们的最大公约数和最小公倍数
+*/
+<script id="lcf&lcm">
+    let  a=Number(prompt("请输入一个数字"));
+    let  b=Number(prompt("请输入一个数字"));
+    lcf_lcm();
+    function lcf_lcm(){
+        let temp1=0;
+        let temp2=0;
+        let num=0,lcf=0,lcm=0,a1=0,b1=0;
+        a1=a;
+        b1=b;
+        for(let k=0;k<100;k++){
+            if(a%2===0&&b%2===0){
+                a/=2;
+                b/=2;
+                num++;
+            }else
+                break;
+        }
+        if(a<b){
+            temp1=a;
+            a=b;
+            b=temp1;
+        }
+        for(let i=1;i<=a;i++){/*求最大公约数*/
+            temp2  =a1-b1;
+            if(temp2<0){
+                temp2=-temp2;
+            }
+            if(temp2===b1){
+                lcf=temp2*(2**num);
+                console.log("最大公约数为"+lcf);
+                break;
+            }
+            a1=b1;
+            b1=temp2;
+        }
+        lcm=a*b/lcf;
+        console.log("最小公倍数为"+lcm);
+    }
+</script>
+
+/*sqrt: 求一个数的平方根*/
+<script id="sqrt">
+    let n=Number(prompt("请输入一个数字"));
+    let temp=0;
+    sqrt(n);
+    function sqrt(n) {
+        temp=0.5*n;
+        for (let i = 1; i <=n; i++) {
+            temp=0.5*(temp+(n/temp));
+        }
+        console.log(temp)
+    }
+</script>
+/*weekday: 输入年份与月份，输出这个月的第一天是周几*/
+<script id="weekday">
+    let year=Number(prompt("请输入年"));
+    let month=Number(prompt("请输入年"));
+    let temp=0;
+    weekday(year,month);
+    function weekday(year,month) {
+       let run=false;
+        let days=1;
+       for (let i=0;i<=year;i++){
+           if(i%4===0&&i%100!==0||i%400===0){/*判断闰年*/
+               run=true;
+           }
+           if(run===true)/*闰年366天*/
+           {
+               days+=366;
+           } else {
+               days+=365;
+           }
+       }
+        for (let i=1;i<month;i++) {
+            switch (i) {
+                case 1:
+                case 3:
+                case 5:
+                case 7:
+                case 8:
+                case 10:
+                case 12:
+                    days += 31;
+                    break;
+                case 2:
+                    if(year%4===0&&year%100!==0||year%400===0){
+                        days+=29;
+                    }
+                    else {
+                        days+=28;
+                    }
+                    break;
+                default:
+                    days += 30;
+                    break;
+            }
+        }
+        let weekday=days%7;
+        switch (weekday) {
+            case 0:
+                day = "星期天";
+                break;
+            case 1:
+                day = "星期一";
+                break;
+            case 2:
+                day = "星期二";
+                break;
+            case 3:
+                day = "星期三";
+                break;
+            case 4:
+                day = "星期四";
+                break;
+            case 5:
+                day = "星期五";
+                break;
+            case 6:
+                day = "星期六";
+        }
+    }
 </script>
 <body>
 
