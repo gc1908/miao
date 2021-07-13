@@ -1548,23 +1548,22 @@ primes: 输出1000以内的素数
 /*weekday: 输入年份与月份，输出这个月的第一天是周几*/
 <script id="weekday">
     let year=Number(prompt("请输入年"));
-    let month=Number(prompt("请输入年"));
-    let temp=0;
+    let month=Number(prompt("请输入月"));
     weekday(year,month);
     function weekday(year,month) {
-       let run=false;
-        let days=1;
-       for (let i=0;i<=year;i++){
-           if(i%4===0&&i%100!==0||i%400===0){/*判断闰年*/
-               run=true;
-           }
-           if(run===true)/*闰年366天*/
-           {
-               days+=366;
-           } else {
-               days+=365;
-           }
-       }
+        let run=false;
+        let days=0;
+        for (let i=0;i<=year;i++){
+            if(i%4===0&&i%100!==0||i%400===0){/*判断闰年*/
+                run=true;
+            }
+            if(run===true)/*闰年366天*/
+            {
+                days+=366;
+            } else {
+                days+=365;
+            }
+        }
         for (let i=1;i<month;i++) {
             switch (i) {
                 case 1:
@@ -1590,6 +1589,7 @@ primes: 输出1000以内的素数
             }
         }
         let weekday=days%7;
+        let day="";
         switch (weekday) {
             case 0:
                 day = "星期天";
@@ -1612,6 +1612,7 @@ primes: 输出1000以内的素数
             case 6:
                 day = "星期六";
         }
+        console.log("这个月的第一天是"+day)
     }
 </script>
 <body>
