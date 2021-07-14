@@ -33,27 +33,35 @@ var gc1908=function (){
         return newarray;
     }
 
-    function concat(array,value){//拼接数组和另外一个数组
-        let valuearray=value;
-
-        for(let i=0;i<valuearray.length;i++){
-            if(!Array.isArray(valuearray[i])){
-                array.push(valuearray[i])
-            }else{
-                let  tempArray=valuearray[i];
-                for(let j=0;j<tempArray.length;j++){
-                    array.push(tempArray[j]);
+    function concat(array,...value){//拼接数组和另外一个数组
+        let newarray=array;
+        for(let val of value){
+            if(Array.isArray(val)){
+                for(let flat of val){
+                    newarray.push(flat);
                 }
             }
+            else {
+                newarray.push(val);
+            }
         }
-         return array;
+        return newarray;
     }
 
     function difference(array1,array2)//比较两个数组，如果第一个数组种存在第二个数组中的值，将这个值剔除；
     {
+        let newarray2=[];
+        for(let i=1;i<arguments.length;i++){
+            let temp=[];
+            temp=flattenDeep(arguments[i]);
+            for(let val of temp){
+                newarray2.push(val);
+            }
+        }
+
         for(let i=0;i<array1.length;i++){
-            for(let j=0;j<array2.length;j++){
-                if(array1[i]==array2[j]){
+            for(let j=0;j<newarray2.length;j++){
+                if(array1[i]==newarray2[j]){
                     array1.splice(i,1);
                 }
             }
@@ -116,7 +124,7 @@ var gc1908=function (){
         return newarray;
     }
 
-    function flattenDepth(array, [depth=1]){
+    function flattenDepth(array, depth=1){
         if(depth==0){
             return array;
         }
