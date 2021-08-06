@@ -1,10 +1,149 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        input[type=text],textarea{
+            width: 300px;
+        }
+        label{
+            font-family: Consolas;
+        }
+        label input{
+           cursor: pointer;
+        }
+        em{
+            background-color: #9fcfff;
+            font-style: normal;
+        }
+        em:empty{
+            border-right: 1px dotted red;
+            margin-right: -1px ;
+        }
+        em:nth-of-type(even){
+             background-color: #d5ebff;
+        }
+        section textarea,pre{
+            padding: 5px;
+            border: 2px solid;
+            margin: 0;
+            height: 100%;
+            width: 100%;
+            box-sizing: border-box;
+            font-family: Consolas;
+            font-size: 16px;
+            overflow-y:scroll ;
+            overflow-x:hidden;
+        }
+        section{
+            position: relative;
+            width: 300px;
+            overflow: hidden;
+        }
+        section pre{
+            position: absolute;
+            color: transparent;
+            top: 0;
+        }
+        section textarea{
+            position: relative;
+            background-color: transparent;
+            z-index: 8;
+        }
+        p#regError{
+            margin: 0;
+            height: 1em;
+            color: red;
+        }
+    </style>
 </head>
 <body>
-$END$
+    <div>
+        请输入正则表达式
+        <label><input type="checkbox" onclick="run()" id="ignoreCase">i</label>
+        <label><input type="checkbox" onclick="run()" id="global">g</label>
+        <label><input type="checkbox" onclick="run()" id="multiline">m</label><br>
+        <input type="text" id="reg" oninput="run()"><br>
+        <p id="regError"></p>
+        请输入内容<br>
+        <section>
+            <textarea onscroll="setscroll()" name="" id="str" cols="30" rows="10" oninput="run()"></textarea>
+            <pre id="result">
+
+        </pre>
+        </section>
+
+    </div>
+    <script>
+        function setscroll(){
+            let scrollTop=str.scrollTop;
+            result.style.top=-scrollTop+"px";
+        }
+        function run(){
+            let regsource=reg.value;
+            if(regsource == ""){
+                result.innerHTML="";
+                regError.innerHTML="Please input any regular exrpession"
+                return;
+            }
+            let flag=getflasgs();
+            let regval;
+            try {
+                regval=new RegExp(regsource,flag);
+            }catch (e){
+                regError.innerHTML=e.message;
+                result.innerHTML="";
+                return;
+            }
+            let strval=str.value;
+            let match;
+            let resultHtml="";
+            if(!regsource){
+                result.innerHTML=resultHtml;
+                return;
+            }
+            if(regval.global){
+                let lastIndex=regval.lastIndex;
+                while(match=regval.exec(strval)){
+                    resultHtml += strval.slice(lastIndex,match.index);
+                    resultHtml += '<em>'+match[0]+'</em>'
+                    lastIndex =regval.lastIndex;
+                    if(match[0]==""){
+                        regval.lastIndex++;
+                    }
+                }
+                resultHtml += strval.slice(lastIndex);
+                result.innerHTML=resultHtml;
+            }else {
+                match=regval.exec(strval)
+                if(match)
+                {
+                    resultHtml += strval.slice(0,match.index);
+                    resultHtml += '<em>'+match[0]+'</em>>'
+                    resultHtml += strval.slice(match[0].length+match.index);
+                    console.log(resultHtml);
+                    result.innerHTML=resultHtml;
+                }else {
+                    result.innerHTML="";
+                }
+
+            }
+
+        }
+        function getflasgs(){
+            let flag="";
+            if(ignoreCase.checked){
+                flag+="i";
+            }
+            if(global.checked){
+                flag+="g";
+            }
+            if(multiline.checked){
+                flag+="m";
+            }
+            return flag;
+        }
+    </script>
 </body>
 </html>
