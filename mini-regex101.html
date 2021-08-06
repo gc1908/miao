@@ -35,6 +35,8 @@
             font-size: 16px;
             overflow-y:scroll ;
             overflow-x:hidden;
+            white-space: pre-wrap;
+            word-break: break-all;
         }
         section{
             position: relative;
@@ -78,7 +80,7 @@
     <script>
         function setscroll(){
             let scrollTop=str.scrollTop;
-            result.style.top=-scrollTop+"px";
+            result.scrollTop=scrollTop;
         }
         function run(){
             let regsource=reg.value;
@@ -114,7 +116,7 @@
                     }
                 }
                 resultHtml += strval.slice(lastIndex);
-                result.innerHTML=resultHtml;
+                result.innerHTML=resultHtml+'\n';
             }else {
                 match=regval.exec(strval)
                 if(match)
@@ -123,7 +125,7 @@
                     resultHtml += '<em>'+match[0]+'</em>>'
                     resultHtml += strval.slice(match[0].length+match.index);
                     console.log(resultHtml);
-                    result.innerHTML=resultHtml;
+                    result.innerHTML=resultHtml+'\n';
                 }else {
                     result.innerHTML="";
                 }
