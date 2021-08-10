@@ -245,7 +245,7 @@ var gc1908=function (){
         flatten : flatten,
         flattenDeep:flattenDeep,
         flattenDepth:flattenDepth,
-        parseJSON:parseJSON,
+        stringifyJson:parseJSON,
     }
 
 
