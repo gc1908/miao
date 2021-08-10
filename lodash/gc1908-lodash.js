@@ -142,15 +142,10 @@ var gc1908=function (){
         }
         return newarray;
     }
-    let parseJSON=function(){
-        let str='';
-        let i=0;
-       return  function  parseJSON(input){debugger
-             str=input;
-             i=0;
-            return parseValue();
-        }
 
+    function  parseJSON(str){
+        let i=0;
+        return parseValue();
         function parseValue(){
             let c=str[i];
             if(c == '['){
@@ -185,7 +180,7 @@ var gc1908=function (){
             i+=4;
             return null;
         }
-        function parseString(){debugger
+        function parseString(){
             i++;
             let result='';
             if(str[i]!=='"'){
@@ -194,8 +189,7 @@ var gc1908=function (){
             i++
             return result;
         }
-
-        function parseNumber(){debugger
+        function parseNumber(){
             let num='';
             while(str[i] >= "0" && str[i] <= "9"){
                 num+=str[i]
@@ -203,7 +197,7 @@ var gc1908=function (){
             }
             return Number(num);
         }
-        function parseArray(){debugger
+        function parseArray(){
             let arr=[];
             i++
             while (str[i] != ']'){
@@ -216,7 +210,7 @@ var gc1908=function (){
             i++
             return arr;
         }
-        function parseObject(){debugger
+        function parseObject(){
             let obj={};
             i++;
             while (str[i] != '}'){
@@ -231,7 +225,10 @@ var gc1908=function (){
             i++
             return obj;
         }
-    }()
+    }
+
+
+
 
     return {
         chunk : chunk,
@@ -245,7 +242,7 @@ var gc1908=function (){
         flatten : flatten,
         flattenDeep:flattenDeep,
         flattenDepth:flattenDepth,
-        stringifyJson:parseJSON,
+        parseJSON:parseJSON,
     }
 
 
