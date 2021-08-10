@@ -6,7 +6,55 @@
     <title>JS Bin</title>
     <style>
     </style>
-    <script type="application/javascript" src="test.js"></script>
+    <script type="application/javascript" src="test.js">
+        function Mymap(){
+            this._keys=[]
+            this._values=[];
+        }
+
+        Mymap.prototype.keyindex=function (val){
+            if(val !== val){
+                return  this._keys.findIndex(it => it !== it);
+            }else
+            {
+                return this._keys.indexOf(val);
+            }
+        }
+        Mymap.prototype.set=function (key,val){
+            if(this.has(key)){
+                let idx = this.keyindex(key);
+                this._values[idx]=val;
+            }else {
+                this._keys.push(key);
+                this._values.push(val);
+            }
+            return this
+        }
+        Mymap.prototype.get=function (key){
+            let idx=this.keyindex(key);
+            if(idx >=0){
+                return this._values[idx];
+            }
+        }
+        Mymap.prototype.has=function (key){
+            return this.includes[key]
+        }
+        Mymap.prototype.delete=function (key){
+            let idx=this.keyindex(key);
+            if(idx >=0){
+                this._keys.splice(idx,1);
+                this._values.splice(idx,1);
+                return true;
+            }
+            return  false
+        }
+        Object.definePrototype(Mymap,"size",{
+            get function(){
+                return this._keys.length;
+            }
+        })
+
+    </script>
 </head>
 <body>
 

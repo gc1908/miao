@@ -142,6 +142,96 @@ var gc1908=function (){
         }
         return newarray;
     }
+    let parseJSON=function(){
+        let str='';
+        let i=0;
+       return  function  parseJSON(input){debugger
+             str=input;
+             i=0;
+            return parseValue();
+        }
+
+        function parseValue(){
+            let c=str[i];
+            if(c == '['){
+                return parseArray();
+            }
+            if(c == '{'){
+                return parseObject();
+            }
+            if(c == '"'){
+                return parseString();
+            }
+            if(c == 't'){
+                return parseTrue();
+            }
+            if(c == 'f'){
+                return parseFalse();
+            }
+            if(c == 'n'){
+                return parseNull();
+            }
+            return  parseNumber();
+        }
+        function parseTrue(){
+            i+=4;
+            return true;
+        }
+        function parseFalse(){
+            i+=5;
+            return false;
+        }
+        function parseNull(){
+            i+=4;
+            return null;
+        }
+        function parseString(){debugger
+            i++;
+            let result='';
+            if(str[i]!=='"'){
+                result+=str[i];
+            }
+            i++
+            return result;
+        }
+
+        function parseNumber(){debugger
+            let num='';
+            while(str[i] >= "0" && str[i] <= "9"){
+                num+=str[i]
+                i++;
+            }
+            return Number(num);
+        }
+        function parseArray(){debugger
+            let arr=[];
+            i++
+            while (str[i] != ']'){
+                let val=parseValue();
+                arr.push(val);
+                if(str[i] == ','){
+                    i++;
+                }
+            }
+            i++
+            return arr;
+        }
+        function parseObject(){debugger
+            let obj={};
+            i++;
+            while (str[i] != '}'){
+                let key=parseString();
+                i+=2;
+                let val=parseValue();
+                obj[key]=val;
+                if(str[i] == ','){
+                    i++;
+                }
+            }
+            i++
+            return obj;
+        }
+    }()
 
     return {
         chunk : chunk,
@@ -155,6 +245,7 @@ var gc1908=function (){
         flatten : flatten,
         flattenDeep:flattenDeep,
         flattenDepth:flattenDepth,
+        parseJSON:parseJSON,
     }
 
 
