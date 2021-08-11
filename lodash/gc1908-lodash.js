@@ -184,7 +184,8 @@ var gc1908=function (){
             i++;
             let result='';
             if(str[i]!=='"'){
-                result+=str[i];
+                let val=parseValue();
+                result+=val;
             }
             i++
             return result;
