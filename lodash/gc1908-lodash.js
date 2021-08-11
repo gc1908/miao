@@ -184,6 +184,7 @@ var gc1908=function (){
             i++;
             let result='';
             while(str[i]!=='"'){
+
                 result+=str[i++];
             }
             return result;
