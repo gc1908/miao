@@ -226,10 +226,104 @@ var gc1908=function (){
             return obj;
         }
     }
+    /*var objects = [{ 'x': 1, 'y': 2 }, { 'x': 2, 'y': 1 }];
+    _.differenceWith(objects, [{ 'x': 1, 'y': 2 }], _.isEqual);
+    => [{ 'x': 2, 'y': 1 }]*/
+    function differenceWith(objects, args, f){
+        let arr=[];
+        for( let i=0;i<objects.length;i++){
+            for(let val of args){
+                if(!f(objects[i],val)){
+                    arr.push(objects[i])
+                }
+            }
+        }
+        return arr;
+    }
 
+    function map(collection,mapper){
+        mapper=iteratee(mapper);
+        let result=[];
+        for (let key in collection){
+            result.push(mapper(collection[key],key,collection))
+        }
+        return result;
+    }
+    function filter(collection,predicate){
+        iteratee=iteratee(predicate);
+        let result=[];
+        for (let key in collection){
+            if(predicate(collection[key],key,collection)===true)
+            result.push(collection[key])
+        }
+        return result;
+    }
+    function  isMatch(object,source){
+        if(object==source){
+            return true
+        }
+        if(typeof  object !=="object" ||(typeof source !=="object" )){
+            return false
+        }
+        for(let key in source){
+            if(source[key]&&typeof source[key]!=="object"){
+                if(source[key]!==object[key]){
+                    return false;
+                }
+            }else {
+                if(!isMatch(object[key],source[key])){
+                    return false
+                }
+            }
+        }
+        return  true;
+    }
+    function get(object,path,defaultVal){
+       if(object ==undefined){
+           return defaultVal;
+       }else if(path.length ==0){
+           return object
+       }else {
+           return get(object[path[0]],path.slice(1));
+       }
+    }
+    function  property(prop){
+        return function (obj){
+            return obj[prop]
+        }
+    }
 
-
-
+    function matches(obj){
+        return function (src){
+            for(let key in src){
+                if(src[key] !==obj[key]){
+                    return false
+                }
+            }
+            return true;
+        }
+    }
+    function  iteratee(maybePredicate){
+        if(typeof  maybePredicate =="function"){
+           return maybePredicate
+        }
+        if(typeof  maybePredicate =="string"){
+             return property(maybePredicate)
+        }
+        if(Array.isArray(maybePredicate)){
+             return matchesProperty(...maybePredicate)
+        }
+        if(typeof  maybePredicate =="object"){
+             return matches (...maybePredicate)
+        }
+    }
+    function matchesProperty(ary){
+        let key=ary[0];
+        let val=ary[1];
+        return function (obj){
+            return obj[key]==val;
+        }
+    }
     return {
         chunk : chunk,
         compact : compact,
@@ -242,7 +336,8 @@ var gc1908=function (){
         flatten : flatten,
         flattenDeep:flattenDeep,
         flattenDepth:flattenDepth,
-        parseJSON:parseJSON,
+        parseJson:parseJSON,
+        differenceWith:differenceWith
     }
 
 
