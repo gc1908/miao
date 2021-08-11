@@ -183,11 +183,9 @@ var gc1908=function (){
         function parseString(){
             i++;
             let result='';
-            if(str[i]!=='"'){
-                let val=parseValue();
-                result+=val;
+            while(str[i]!=='"'){
+                result+=str[i++];
             }
-            i++
             return result;
         }
         function parseNumber(){
